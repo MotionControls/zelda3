@@ -31,3 +31,7 @@ __pycache__
 /sprites-gfx
 /glsl-shaders
 /token.txt
+/assets/custom/music/
+/assets/ZeldaDocs_11_30_2011/
+/third_party/SDL2_mixer-2.6.3/
+*.dll
