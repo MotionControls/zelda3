@@ -4,6 +4,7 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include <SDL.h>
+#include <SDL_mixer.h>
 #ifdef _WIN32
 #include "platform/win32/volume_control.h"
 #include <direct.h>
@@ -26,6 +27,8 @@
 #include "load_gfx.h"
 #include "util.h"
 #include "audio.h"
+
+#include "CustomMusic.h"
 
 static bool g_run_without_emu = 0;
 
@@ -331,6 +334,11 @@ int main(int argc, char** argv) {
     printf("Failed to init SDL: %s\n", SDL_GetError());
     return 1;
   }
+
+  // Init SDL_Mixer
+  Mix_Init(MIX_INIT_MP3);
+  Mix_OpenAudio(MIX_DEFAULT_FREQUENCY, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 2048);
+  MUS_LoadMusic("./assets/custom/music/test/ghost.mp3");
 
   bool custom_size  = g_config.window_width != 0 && g_config.window_height != 0;
   int window_width  = custom_size ? g_config.window_width  : g_current_window_scale * g_snes_width;

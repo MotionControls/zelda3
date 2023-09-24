@@ -108,13 +108,13 @@ void WritePpuRegisters() {
 
 static void Interrupt_NMI_AudioParts_Locked() {
   if (music_control == 0) {
-//    if (zelda_apu_read(APUI00) == last_music_control)
-//      zelda_apu_write(APUI00, 0);
+    // if (zelda_apu_read(APUI00) == last_music_control)
+    // zelda_apu_write(APUI00, 0);
     // Zelda causes unwanted music change when going in a portal. last_music_control doesn't hold the 
     // song but the last applied effect
   } else if (!ZeldaIsPlayingMusicTrackWithBug(music_control)) {
     last_music_control = music_control;
-    ZeldaPlayMsuAudioTrack(music_control);
+    //ZeldaPlayMsuAudioTrack(music_control);  // This is, shockingly, where music is played.
     if (music_control < 0xf2)
       music_unk1 = music_control;
     music_control = 0;

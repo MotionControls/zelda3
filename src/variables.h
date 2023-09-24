@@ -1,5 +1,6 @@
 #ifndef ZELDA3_VARIABLES_H_
 #define ZELDA3_VARIABLES_H_
+
 #define main_module_index (*(uint8*)(g_ram+0x10))
 #define submodule_index (*(uint8*)(g_ram+0x11))
 #define nmi_boolean (*(uint8*)(g_ram+0x12))
@@ -1525,6 +1526,5 @@ extern const uint8 kLitTorchesColorPlus[];
 extern const uint8 kDungeonCrystalPendantBit[];
 extern const int8 kGetBestActionToPerformOnTile_x[];
 extern const int8 kGetBestActionToPerformOnTile_y[];
-
 
 #endif  // ZELDA3_VARIABLES_H_

@@ -1,6 +1,7 @@
 @echo off
 
-set SDL2=third_party\SDL2-2.26.3
+set SDL2=third_party\SDL2-2.28.3
+set SDL2MIX=third_party\SDL2_mixer-2.6.3
 
 IF NOT EXIST "third_party\tcc\tcc.exe" (
   ECHO:
@@ -25,6 +26,16 @@ IF NOT EXIST "%SDL2%\lib\x64\SDL2.dll" (
   REM
 )
 
+IF NOT EXIST "%SDL2MIX%\lib\x64\SDL2_mixer.dll" (
+  ECHO:
+  ECHO ERROR: SDL is not unzipped properly into %SDL2MIX%
+  ECHO:
+  PAUSE
+  EXIT /B 1
+) ELSE (
+  REM
+)
+
 IF NOT EXIST "zelda3_assets.dat" (
   ECHO:
   ECHO ERROR: zelda3_assets.dat was not found.
@@ -38,10 +49,11 @@ IF NOT EXIST "zelda3_assets.dat" (
 
 
 echo Building with TCC...
-third_party\tcc\tcc.exe -ozelda3.exe -DCOMPILER_TCC=1 -DSTBI_NO_SIMD=1 -DHAVE_STDINT_H=1 -D_HAVE_STDINT_H=1 -DSYSTEM_VOLUME_MIXER_AVAILABLE=0 -I%SDL2%/include -L%SDL2%/lib/x64 -lSDL2 -I. src/*.c snes/*.c third_party/gl_core/gl_core_3_1.c third_party/opus-1.3.1-stripped/opus_decoder_amalgam.c
+third_party\tcc\tcc.exe -ozelda3.exe -DCOMPILER_TCC=1 -DSTBI_NO_SIMD=1 -DHAVE_STDINT_H=1 -D_HAVE_STDINT_H=1 -DSYSTEM_VOLUME_MIXER_AVAILABLE=0 -I%SDL2%/include -I%SDL2MIX%/include -L%SDL2%/lib/x64 -L%SDL2MIX%/lib/x64 -lSDL2 -lSDL2_mixer -I. src/*.c snes/*.c third_party/gl_core/gl_core_3_1.c third_party/opus-1.3.1-stripped/opus_decoder_amalgam.c
 IF ERRORLEVEL 1 goto GETOUT
 
 copy %SDL2%\lib\x64\SDL2.dll .
+copy %SDL2MIX%\lib\x64\SDL2_mixer.dll .
 
 echo Running...
 zelda3.exe
