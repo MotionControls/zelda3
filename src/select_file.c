@@ -195,12 +195,12 @@ void Module01_FileSelect() {  // 8ccd7d
   BG3HOFS_copy2 = 0;
   BG3VOFS_copy2 = 0;
   switch (submodule_index) {
-  case 0: Module_SelectFile_0(); break;
-  case 1: FileSelect_ReInitSaveFlagsAndEraseTriforce(); break;
-  case 2: Module_EraseFile_1(); break;
-  case 3: FileSelect_TriggerStripesAndAdvance(); break;
-  case 4: FileSelect_TriggerNameStripesAndAdvance(); break;
-  case 5: FileSelect_Main(); break;
+    case 0: Module_SelectFile_0(); break;
+    case 1: FileSelect_ReInitSaveFlagsAndEraseTriforce(); break;
+    case 2: Module_EraseFile_1(); break;
+    case 3: FileSelect_TriggerStripesAndAdvance(); break;
+    case 4: FileSelect_TriggerNameStripesAndAdvance(); break;
+    case 5: FileSelect_Main(); break;
   }
 }
 
