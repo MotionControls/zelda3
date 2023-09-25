@@ -47,7 +47,6 @@ IF NOT EXIST "zelda3_assets.dat" (
   REM
 )
 
-
 echo Building with TCC...
 third_party\tcc\tcc.exe -ozelda3.exe -DCOMPILER_TCC=1 -DSTBI_NO_SIMD=1 -DHAVE_STDINT_H=1 -D_HAVE_STDINT_H=1 -DSYSTEM_VOLUME_MIXER_AVAILABLE=0 -I%SDL2%/include -I%SDL2MIX%/include -L%SDL2%/lib/x64 -L%SDL2MIX%/lib/x64 -lSDL2 -lSDL2_mixer -I. src/*.c snes/*.c third_party/gl_core/gl_core_3_1.c third_party/opus-1.3.1-stripped/opus_decoder_amalgam.c
 IF ERRORLEVEL 1 goto GETOUT

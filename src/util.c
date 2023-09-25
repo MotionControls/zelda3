@@ -278,3 +278,14 @@ uint8 *ApplyBps(const uint8 *src, size_t src_size_in,
     return NULL;
   return dst;
 }
+
+/* Custom Music */
+json_value* GetValueByKey(char* key, json_value* value) {
+  if(!value) return NULL;
+  for(int i = 0; i < value->u.object.length; i++) {
+        if(!strcmp(key, value->u.object.values[i].name)) {
+            return value->u.object.values[i].value;
+        }
+    }
+  return NULL;
+}

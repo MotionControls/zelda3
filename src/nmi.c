@@ -7,6 +7,8 @@
 #include "assets.h"
 #include "audio.h"
 
+#include "CustomMusic.h"
+
 static const uint8 kNmiVramAddrs[] = {
   0, 0, 4, 8, 12, 8, 12, 0, 4, 0, 8, 4, 12, 4, 12, 0,
   8, 16, 20, 24, 28, 24, 28, 16, 20, 16, 24, 20, 28, 20, 28, 16,
@@ -114,9 +116,16 @@ static void Interrupt_NMI_AudioParts_Locked() {
     // song but the last applied effect
   } else if (!ZeldaIsPlayingMusicTrackWithBug(music_control)) {
     last_music_control = music_control;
-    //ZeldaPlayMsuAudioTrack(music_control);  // This is, shockingly, where music is played.
-    if (music_control < 0xf2)
+    
+    if(!MUS_LoadBasedContext())
+      ZeldaPlayMsuAudioTrack(music_control);  // This is, shockingly, where music is played.
+    
+    if (music_control < MUSID_FADEOUT)
       music_unk1 = music_control;
+    
+    if(music_control != 0)
+      printf("Interrupt_NMI_AudioParts_Locked(): music_control: %u.\n", music_control);
+
     music_control = 0;
   }
 

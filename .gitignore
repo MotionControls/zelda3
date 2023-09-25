@@ -35,3 +35,5 @@ __pycache__
 /assets/ZeldaDocs_11_30_2011/
 /third_party/SDL2_mixer-2.6.3/
 *.dll
+third_party/libs/json.c
+third_party/libs/json.h

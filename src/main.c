@@ -338,7 +338,7 @@ int main(int argc, char** argv) {
   // Init SDL_Mixer
   Mix_Init(MIX_INIT_MP3);
   Mix_OpenAudio(MIX_DEFAULT_FREQUENCY, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 2048);
-  MUS_LoadMusic("./assets/custom/music/test/ghost.mp3");
+  //MUS_LoadMusic("./assets/custom/music/test/ghost.mp3");
 
   bool custom_size  = g_config.window_width != 0 && g_config.window_height != 0;
   int window_width  = custom_size ? g_config.window_width  : g_current_window_scale * g_snes_width;
