@@ -1,6 +1,8 @@
 #ifndef ZELDA3_VARIABLES_H_
 #define ZELDA3_VARIABLES_H_
 
+#include "util.h"
+
 #define main_module_index (*(uint8*)(g_ram+0x10))
 #define submodule_index (*(uint8*)(g_ram+0x11))
 #define nmi_boolean (*(uint8*)(g_ram+0x12))
@@ -1526,5 +1528,45 @@ extern const uint8 kLitTorchesColorPlus[];
 extern const uint8 kDungeonCrystalPendantBit[];
 extern const int8 kGetBestActionToPerformOnTile_x[];
 extern const int8 kGetBestActionToPerformOnTile_y[];
+
+/* Custom Music */
+#define USE_CUSTOM_MUSIC  1
+#define USE_MUSICVAR_BACK 1
+
+/* Music IDs */
+#define MUSID_OPENING         0x01
+#define MUSID_LIGHTWORLD      0x02
+#define MUSID_LEGEND          0x03
+#define MUSID_BUNNYLINK       0x04
+#define MUSID_LOSTWOODS       0x05
+#define MUSID_KAKKARIKO       0x07
+#define MUSID_MIRRORWARP      0x08
+#define MUSID_DARKWORLD       0x09
+#define MUSID_RESTORESWORD    0x0A  // Restoring the Master Sword.
+#define MUSID_FAERIE          0x0B  // The areas where the fairies heal you?
+#define MUSID_CHASE           0x0C
+#define MUSID_SKULLWOODS      0x0D
+#define MUSID_OVERWORLD       0x0E
+#define MUSID_HYRULECASTLE    0x10
+#define MUSID_FANFARE         0x13
+#define MUSID_BOSS            0x15
+#define MUSID_DARKDUNGEON     0x16
+#define MUSID_FORTUNETELLER   0x17
+#define MUSID_CAVES           0x18
+#define MUSID_SENTIMENTOFHOPE 0x19
+#define MUSID_CRYSTAL         0x1A
+#define MUSID_FAERIEARPEGGIO  0x1B
+#define MUSID_FEARANXIETY     0x1C
+#define MUSID_AGAHNIM         0x1D  // Also 0x21
+#define MUSID_SURPRISE        0x1E  // Also 0x22
+#define MUSID_GANONDORF       0x1F  // Also 0x23
+#define MUSID_NOTHING         0x20
+
+/* Music Effects */
+// Not sure if I'll use these but probably smart to have around regardless.
+#define MUSID_FADEOUT         0xF1    
+#define MUSID_HALFVOLUME      0xF2
+#define MUSID_FULLVOLUME      0xF3
+#define MUSID_LOADNEWMUSIC    0xFF
 
 #endif  // ZELDA3_VARIABLES_H_
