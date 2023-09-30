@@ -35,3 +35,4 @@ __pycache__
 /assets/custom/music/
 /assets/ZeldaDocs_11_30_2011/
 *.dll
+assets/shaders/Example_fxaa.glsl
