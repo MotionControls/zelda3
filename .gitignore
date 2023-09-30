@@ -31,3 +31,7 @@ __pycache__
 /sprites-gfx
 /glsl-shaders
 /token.txt
+/third_party
+/assets/custom/music/
+/assets/ZeldaDocs_11_30_2011/
+*.dll
